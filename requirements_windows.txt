@@ -1,0 +1,7 @@
+keyboard
+sounddevice
+numpy
+faster-whisper
+pyperclip
+pystray
+Pillow
