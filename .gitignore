@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Build output
+build/
+dist/
+*.spec
+
+# PyInstaller cache
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model cache (too large, downloads automatically)
+*.bin
+*.pt
+
+# Local config (has user-specific device settings)
+# config.json is in %APPDATA%, not here — nothing to ignore
