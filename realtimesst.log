@@ -1,0 +1,102 @@
+2026-04-02 20:26:46.901 - RealTimeSTT: realtimestt - INFO - Starting RealTimeSTT
+2026-04-02 20:26:46.960 - RealTimeSTT: realtimestt - INFO - Initializing audio recording (creating pyAudio input stream, sample rate: 16000 buffer size: 512
+2026-04-02 20:26:46.964 - RealTimeSTT: realtimestt - INFO - Initializing faster_whisper realtime transcription model tiny, default device: cpu, compute type: default, device index: 0, download root: None
+2026-04-02 20:27:14.333 - RealTimeSTT: realtimestt - DEBUG - Faster_whisper realtime speech to text transcription model initialized successfully
+2026-04-02 20:27:14.336 - RealTimeSTT: realtimestt - INFO - Initializing WebRTC voice with Sensitivity 3
+2026-04-02 20:27:14.337 - RealTimeSTT: realtimestt - DEBUG - WebRTC VAD voice activity detection engine initialized successfully
+2026-04-02 20:32:01.422 - RealTimeSTT: realtimestt - DEBUG - Silero VAD voice activity detection engine initialized successfully
+2026-04-02 20:32:01.424 - RealTimeSTT: realtimestt - DEBUG - Starting realtime worker
+2026-04-02 20:32:01.426 - RealTimeSTT: realtimestt - DEBUG - Waiting for main transcription model to start
+2026-04-02 20:32:01.428 - RealTimeSTT: realtimestt - DEBUG - Main transcription model ready
+2026-04-02 20:32:01.424 - RealTimeSTT: realtimestt - WARNING - Audio queue size exceeds latency limit. Current size: 9697. Discarding old audio chunks.
+2026-04-02 20:32:01.430 - RealTimeSTT: realtimestt - DEBUG - RealtimeSTT initialization completed successfully
+2026-04-02 20:33:48.186 - RealTimeSTT: realtimestt - INFO - recording started
+2026-04-02 20:33:48.187 - RealTimeSTT: realtimestt - INFO - State changed from 'inactive' to 'recording'
+2026-04-02 20:33:48.200 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 0
+2026-04-02 20:33:48.203 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected: 
+2026-04-02 20:33:48.403 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 3072
+2026-04-02 20:33:48.661 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Good.
+2026-04-02 20:33:48.661 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 7168
+2026-04-02 20:33:48.906 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Good.
+2026-04-02 20:33:48.907 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 11264
+2026-04-02 20:33:49.142 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Good.
+2026-04-02 20:33:49.144 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 15360
+2026-04-02 20:33:49.389 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Good.
+2026-04-02 20:33:49.389 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 18432
+2026-04-02 20:33:49.651 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Okay.
+2026-04-02 20:33:49.654 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 23552
+2026-04-02 20:33:49.923 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Thank you.
+2026-04-02 20:33:49.925 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 27648
+2026-04-02 20:33:50.207 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Let's try and do it
+2026-04-02 20:33:50.209 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 31744
+2026-04-02 20:33:50.490 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Let's try and do the channel
+2026-04-02 20:33:50.492 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 36864
+2026-04-02 20:33:50.812 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Let's try and do it. Let's turn how this works.
+2026-04-02 20:33:50.813 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 41984
+2026-04-02 20:33:51.109 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works.
+2026-04-02 20:33:51.111 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 46080
+2026-04-02 20:33:51.400 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Thank you, let's hand out this work.
+2026-04-02 20:33:51.401 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 51200
+2026-04-02 20:33:51.687 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how to work if it works
+2026-04-02 20:33:51.690 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 55296
+2026-04-02 20:33:52.002 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works, it will work again.
+2026-04-02 20:33:52.004 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 60416
+2026-04-02 20:33:52.343 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works, if it working, if it worked.
+2026-04-02 20:33:52.344 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 66560
+2026-04-02 20:33:52.675 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works. If it works, it will work.
+2026-04-02 20:33:52.676 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 71680
+2026-04-02 20:33:53.021 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works, if it works, if it works, if it works
+2026-04-02 20:33:53.023 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 76800
+2026-04-02 20:33:53.371 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works. If it works, it will work.
+2026-04-02 20:33:53.372 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 82944
+2026-04-02 20:33:53.686 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works. If it working, if it working.
+2026-04-02 20:33:53.687 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 88064
+2026-04-02 20:33:54.023 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works. If it working, if it working. If it working.
+2026-04-02 20:33:54.024 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 93184
+2026-04-02 20:33:54.436 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works, if it working, if it working, if it working, if it worked, if it worked, if it worked
+2026-04-02 20:33:54.437 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 99328
+2026-04-02 20:33:55.907 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Try and do a little bit how this works. If it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it
+2026-04-02 20:33:55.909 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 122880
+2026-04-02 20:33:57.374 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Trying to return how this works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if
+2026-04-02 20:33:57.376 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 146432
+2026-04-02 20:33:58.835 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Let's try and know how this works. If it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works
+2026-04-02 20:33:58.837 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 169984
+2026-04-02 20:34:00.359 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Let's try and know how this works. If it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works
+2026-04-02 20:34:00.360 - RealTimeSTT: realtimestt - DEBUG - Current realtime buffer size: 194560
+2026-04-02 20:34:00.904 - RealTimeSTT: realtimestt - INFO - recording stopped
+2026-04-02 20:34:00.906 - RealTimeSTT: realtimestt - INFO - Setting listen time
+2026-04-02 20:34:00.907 - RealTimeSTT: realtimestt - DEBUG - No samples removed, final audio length: 202752
+2026-04-02 20:34:00.908 - RealTimeSTT: realtimestt - INFO - State changed from 'recording' to 'inactive'
+2026-04-02 20:34:00.937 - RealTimeSTT: realtimestt - INFO - State changed from 'inactive' to 'transcribing'
+2026-04-02 20:34:00.941 - RealTimeSTT: realtimestt - DEBUG - Adding transcription request, no early transcription started
+2026-04-02 20:34:00.942 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.045 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.156 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.265 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.375 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.484 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.594 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.702 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.815 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:01.923 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.029 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.141 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.250 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.359 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.468 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.577 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.581 - RealTimeSTT: realtimestt - DEBUG - Realtime text detected:  Thank you. Let's have a look at how this works. If it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works, if it works
+2026-04-02 20:34:02.685 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.795 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:02.906 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.016 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.127 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.234 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.344 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.453 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.562 - RealTimeSTT: realtimestt - DEBUG - Receive from parent_transcription_pipe after sendiung transcription request, transcribe_count: 1
+2026-04-02 20:34:03.571 - RealTimeSTT: realtimestt - INFO - State changed from 'transcribing' to 'inactive'
+2026-04-02 20:34:03.630 - RealTimeSTT: realtimestt - DEBUG - Finishing recording thread
+2026-04-02 20:34:03.640 - RealTimeSTT: realtimestt - DEBUG - Terminating reader process
+2026-04-02 20:34:04.254 - RealTimeSTT: realtimestt - DEBUG - Terminating transcription process
+2026-04-02 20:34:04.255 - RealTimeSTT: realtimestt - DEBUG - Finishing realtime thread

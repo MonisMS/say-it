@@ -1,6 +1,6 @@
 @echo off
 echo Installing say-it dependencies...
-pip install keyboard sounddevice numpy faster-whisper pystray pillow
+pip install keyboard sounddevice numpy faster-whisper pystray pillow whisper-streaming
 
 echo.
 echo Checking for NVIDIA GPU...
