@@ -105,12 +105,39 @@ def main():
         icon.update_menu()
 
     def show_history():
+        import tkinter as tk
         rows = history.recent(20)
+
+        win = tk.Toplevel(overlay.root)
+        win.title("say-it — History")
+        win.configure(bg="#1C1C1E")
+        win.geometry("540x400")
+        win.resizable(True, True)
+        win.wm_attributes("-topmost", True)
+
+        txt = tk.Text(
+            win, bg="#1C1C1E", fg="#FFFFFF", font=("Segoe UI", 11),
+            relief="flat", padx=12, pady=12, wrap="word", cursor="arrow",
+        )
+        txt.pack(expand=True, fill="both")
+
         if not rows:
-            show_message("say-it  —  History", "No transcriptions yet.")
-            return
-        lines = "\n".join(f"[{r[2][:19]}]  {r[1]}" for r in rows)
-        show_message("say-it  —  History", lines)
+            txt.insert("end", "No transcriptions yet.")
+        else:
+            for r in rows:
+                txt.insert("end", f"{r[2][:19]}\n", "dim")
+                txt.insert("end", f"{r[1]}\n\n")
+
+        txt.tag_config("dim", foreground="#888888", font=("Segoe UI", 9))
+        txt.config(state="normal")  # keep selectable/copyable
+
+        tk.Button(
+            win, text="Close", bg="#2a2a2a", fg="#fff",
+            relief="flat", padx=16, pady=6, cursor="hand2",
+            command=win.destroy,
+        ).pack(pady=(0, 12))
+
+        overlay.root.after(0, win.lift)
 
     def quit_app(icon):
         keyboard.unhook_all()

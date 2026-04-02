@@ -96,14 +96,8 @@
     }
 
     .card:hover { border-color: #444; }
-
     .card-icon { font-size: 2rem; }
-
-    .card-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-    }
+    .card-name { font-size: 1rem; font-weight: 600; color: #fff; }
 
     .btn-download {
       background: #ffffff;
@@ -116,6 +110,7 @@
       cursor: pointer;
       text-decoration: none;
       transition: opacity 0.15s;
+      text-align: center;
     }
 
     .btn-download:hover { opacity: 0.85; }
@@ -131,14 +126,65 @@
       cursor: default;
     }
 
-    .note {
-      margin-top: 48px;
-      color: #444;
-      font-size: 0.8rem;
-      text-align: center;
+    .what-downloads {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.78rem;
+      color: #666;
+      line-height: 1.7;
+      width: 100%;
+      text-align: left;
     }
 
-    .note a { color: #666; text-decoration: underline; }
+    .what-downloads strong { color: #999; }
+
+    details summary {
+      color: #555;
+      font-size: 0.78rem;
+      cursor: pointer;
+      list-style: none;
+      text-align: center;
+      margin-top: -4px;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: " ▾"; }
+    details[open] summary::after { content: " ▴"; }
+
+    details[open] .what-downloads {
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+
+    .footer a:hover { color: #aaa; }
+
+    .github-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .divider { color: #2a2a2a; }
   </style>
 </head>
 <body>
@@ -167,9 +213,20 @@
     <div class="card">
       <div class="card-icon">🪟</div>
       <div class="card-name">Windows</div>
-      <a class="btn-download" href="https://github.com/YOUR_USERNAME/say-it/releases/latest/download/say-it.exe" download>
+      <a class="btn-download"
+         href="https://github.com/MonisMS/say-it/releases/latest/download/say-it.exe"
+         download>
         Download .exe
       </a>
+      <details>
+        <summary>What does this download?</summary>
+        <div class="what-downloads">
+          <strong>say-it.exe</strong> — a single file (~150 MB)<br><br>
+          Includes Python runtime, the Whisper speech model, and everything needed to run.<br><br>
+          <strong>On first launch</strong>, it downloads the AI model (~250 MB) — takes 1–2 min. After that it works fully offline.<br><br>
+          Nothing is installed to your system. Delete the file to uninstall.
+        </div>
+      </details>
     </div>
 
     <div class="card">
@@ -186,10 +243,27 @@
 
   </div>
 
-  <p class="note">
-    Open source &nbsp;·&nbsp;
-    <a href="https://github.com/YOUR_USERNAME/say-it" target="_blank">View on GitHub</a>
-  </p>
+  <div class="footer">
+    <a href="https://github.com/MonisMS/say-it" target="_blank">
+      <svg class="github-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
+          0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755
+          -1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236
+          1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466
+          -1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176
+          0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405
+          2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23
+          1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
+          0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295
+          24 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
+    <span class="divider">·</span>
+    <a href="https://github.com/MonisMS/say-it/issues" target="_blank">Report a bug</a>
+    <span class="divider">·</span>
+    <a href="https://github.com/MonisMS/say-it/releases" target="_blank">All releases</a>
+  </div>
 
 </body>
 </html>
