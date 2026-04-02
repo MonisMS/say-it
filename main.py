@@ -9,6 +9,7 @@ from src.config         import Config
 from src.streaming_stt  import StreamingSTT
 from src.autotype       import AutoTyper
 from src.history        import History
+from src.overlay        import Overlay
 
 
 def make_icon(color: str) -> Image.Image:
@@ -31,6 +32,7 @@ def main():
     config    = Config()
     history   = History()
     autotyper = AutoTyper()
+    overlay   = Overlay()
 
     _recording    = False
     _transcribing = False
@@ -38,15 +40,19 @@ def main():
     _icon         = [None]
     _target_hwnd  = [None]
 
-    def set_status(label: str, img: Image.Image):
+    def set_status(label: str, img: Image.Image, overlay_text: str = "", dim: bool = False):
         icon = _icon[0]
         if icon is not None:
             icon.title = f"say-it  •  {label}"
             icon.icon  = img
+        if overlay_text:
+            overlay.show(overlay_text, dim=dim)
+        else:
+            overlay.hide()
 
     def on_partial(text):
         preview = (text[:40] + "...") if len(text) > 40 else text
-        set_status(preview, ICON_RECORDING)
+        set_status(preview, ICON_RECORDING, overlay_text=f"  {preview}  ")
 
     stt = StreamingSTT(
         model_name=config.model,
@@ -56,7 +62,8 @@ def main():
 
     def do_transcribe():
         nonlocal _transcribing
-        set_status("Transcribing...", ICON_THINKING)
+        set_status("Transcribing...", ICON_THINKING,
+                   overlay_text="  Transcribing...  ", dim=True)
         text = stt.get_text()
         if text:
             autotyper.type(text, _target_hwnd[0])
@@ -73,7 +80,8 @@ def main():
                     return
                 _recording = True
             _target_hwnd[0] = ctypes.windll.user32.GetForegroundWindow()
-            set_status("Recording...", ICON_RECORDING)
+            set_status("Recording...", ICON_RECORDING,
+                       overlay_text="  Recording...  ")
             stt.start()
         elif e.event_type == keyboard.KEY_UP:
             with _lock:
@@ -106,6 +114,7 @@ def main():
 
     def quit_app(icon):
         keyboard.unhook_all()
+        overlay.destroy()
         icon.stop()
         stt.shutdown()
         sys.exit(0)
@@ -125,8 +134,11 @@ def main():
     icon = pystray.Icon("say-it", ICON_IDLE, "say-it  •  Idle", menu)
     _icon[0] = icon
 
+    # pystray needs its own thread; tkinter mainloop must run on main thread
+    threading.Thread(target=icon.run, daemon=True).start()
+
     print("say-it is running. Hold RIGHT ALT to record.")
-    icon.run()
+    overlay.root.mainloop()
 
 
 if __name__ == "__main__":

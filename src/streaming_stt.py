@@ -4,9 +4,10 @@ Streaming transcriber using whisper_streaming's LocalAgreement algorithm.
 Architecture:
 - Audio captured via sounddevice during key hold
 - Every CHUNK_SECONDS of audio, process_iter() commits confirmed words
-- Audio buffer stays bounded (trimmed after commit) — never grows to full length
+- For short recordings (< SHORT_THRESHOLD), uses a single batch transcribe()
+  call which is faster and more accurate than the streaming path
 - On key release, finish() flushes the uncommitted tail only (~3-5s max)
-- Result: 40s recording → ~3-8s wait, not 40s
+- Result: 40s recording → ~3-8s wait, not 40s; <15s → ~1-3s wait
 """
 
 import io
@@ -71,8 +72,9 @@ class StreamingSTT:
         text = stt.get_text()  # blocks only for the last ~3-5s chunk
     """
 
-    SAMPLE_RATE   = 16000
-    CHUNK_SECONDS = 3.0
+    SAMPLE_RATE     = 16000
+    CHUNK_SECONDS   = 3.0
+    SHORT_THRESHOLD = 15.0   # recordings under this → fast single-pass batch
 
     def __init__(self, model_name="small", language=None, on_partial=None):
         self._language   = None if not language or language == "auto" else language
@@ -90,6 +92,18 @@ class StreamingSTT:
         self._processor_thread = None
         self._stop_event       = threading.Event()
         self._committed_parts  = []
+        self._all_audio        = np.array([], dtype=np.float32)
+        self._all_audio_lock   = threading.Lock()
+
+        # Warmup: first CTranslate2 call is 2-5x slower; do it eagerly
+        threading.Thread(target=self._warmup, daemon=True).start()
+
+    def _warmup(self):
+        silence = np.zeros(self.SAMPLE_RATE, dtype=np.float32)  # 1s of silence
+        try:
+            self._model.transcribe(silence, language=self._language, beam_size=1)
+        except Exception:
+            pass
 
     def _make_processor(self):
         return OnlineASRProcessor(
@@ -100,7 +114,10 @@ class StreamingSTT:
         )
 
     def _sd_callback(self, indata, frames, time_info, status):
-        self._audio_q.put(indata.copy().flatten())
+        chunk = indata.copy().flatten()
+        self._audio_q.put(chunk)
+        with self._all_audio_lock:
+            self._all_audio = np.concatenate([self._all_audio, chunk])
 
     def _process_loop(self):
         chunk_samples = int(self.CHUNK_SECONDS * self.SAMPLE_RATE)
@@ -126,16 +143,11 @@ class StreamingSTT:
         if len(pending) > 0:
             self._online.insert_audio_chunk(pending)
 
-        # Final process_iter() — handles short recordings under CHUNK_SECONDS
-        _, _, text = self._online.process_iter()
-        if text:
-            self._committed_parts.append(text)
-            if self._on_partial:
-                self._on_partial(" ".join(self._committed_parts))
-
     def start(self):
         self._committed_parts = []
         self._stop_event.clear()
+        with self._all_audio_lock:
+            self._all_audio = np.array([], dtype=np.float32)
         self._online.init()
 
         self._stream = sd.InputStream(
@@ -161,11 +173,33 @@ class StreamingSTT:
         if self._processor_thread:
             self._processor_thread.join(timeout=30.0)
 
-        _, _, tail = self._online.finish()
-        if tail:
-            self._committed_parts.append(tail)
+        with self._all_audio_lock:
+            duration = len(self._all_audio) / self.SAMPLE_RATE
+            audio_snapshot = self._all_audio.copy()
 
-        return " ".join(self._committed_parts).strip()
+        if duration < self.SHORT_THRESHOLD:
+            # Fast path: single batch transcribe for short recordings
+            if len(audio_snapshot) == 0:
+                return ""
+            segments, _ = self._model.transcribe(
+                audio_snapshot,
+                language=self._language,
+                beam_size=5,
+                condition_on_previous_text=False,
+                temperature=0,
+                vad_filter=False,
+            )
+            parts = []
+            for seg in segments:
+                if seg.no_speech_prob < 0.9:
+                    parts.append(seg.text.strip())
+            return " ".join(parts).strip()
+        else:
+            # Streaming path: flush the uncommitted tail
+            _, _, tail = self._online.finish()
+            if tail:
+                self._committed_parts.append(tail)
+            return " ".join(self._committed_parts).strip()
 
     def set_language(self, language: str):
         if self._language == language:

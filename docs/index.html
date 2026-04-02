@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>say-it — Local Voice to Text</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0f0f0f;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .badge {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #fff 30%, #888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      color: #888;
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .how {
+      margin-top: 40px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .arrow { color: #444; font-size: 1rem; }
+
+    .cards {
+      margin-top: 56px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 28px 32px;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: #444; }
+
+    .card-icon { font-size: 2rem; }
+
+    .card-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .btn-download {
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-download:hover { opacity: 0.85; }
+
+    .btn-soon {
+      background: transparent;
+      color: #555;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: default;
+    }
+
+    .note {
+      margin-top: 48px;
+      color: #444;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .note a { color: #666; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="badge">100% Local &nbsp;·&nbsp; No Cloud &nbsp;·&nbsp; Free</div>
+
+  <h1><span>Voice to text,<br>instantly.</span></h1>
+
+  <p class="subtitle">
+    Hold a key. Speak. Release. Your words appear wherever your cursor is —
+    no servers, no subscriptions, everything stays on your machine.
+  </p>
+
+  <div class="how">
+    <div class="step">Hold Right Alt</div>
+    <div class="arrow">→</div>
+    <div class="step">Speak</div>
+    <div class="arrow">→</div>
+    <div class="step">Release</div>
+    <div class="arrow">→</div>
+    <div class="step">Text appears ✓</div>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">🪟</div>
+      <div class="card-name">Windows</div>
+      <a class="btn-download" href="https://github.com/YOUR_USERNAME/say-it/releases/latest/download/say-it.exe" download>
+        Download .exe
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐧</div>
+      <div class="card-name">Linux</div>
+      <div class="btn-soon">Coming soon</div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🍎</div>
+      <div class="card-name">macOS</div>
+      <div class="btn-soon">Coming soon</div>
+    </div>
+
+  </div>
+
+  <p class="note">
+    Open source &nbsp;·&nbsp;
+    <a href="https://github.com/YOUR_USERNAME/say-it" target="_blank">View on GitHub</a>
+  </p>
+
+</body>
+</html>
