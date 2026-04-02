@@ -96,6 +96,11 @@
     }
 
     .card:hover { border-color: #444; }
+
+    .card-windows {
+      border-color: #444;
+      box-shadow: 0 0 0 1px #333;
+    }
     .card-icon { font-size: 2rem; }
     .card-name { font-size: 1rem; font-weight: 600; color: #fff; }
 
@@ -140,22 +145,6 @@
 
     .what-downloads strong { color: #999; }
 
-    details summary {
-      color: #555;
-      font-size: 0.78rem;
-      cursor: pointer;
-      list-style: none;
-      text-align: center;
-      margin-top: -4px;
-    }
-
-    details summary::-webkit-details-marker { display: none; }
-    details summary::after { content: " ▾"; }
-    details[open] summary::after { content: " ▴"; }
-
-    details[open] .what-downloads {
-      margin-top: 10px;
-    }
 
     .footer {
       margin-top: 56px;
@@ -210,23 +199,20 @@
 
   <div class="cards">
 
-    <div class="card">
+    <div class="card card-windows">
       <div class="card-icon">🪟</div>
       <div class="card-name">Windows</div>
       <a class="btn-download"
          href="https://github.com/MonisMS/say-it/releases/latest/download/say-it.exe"
          download>
-        Download .exe
+        ↓ Download .exe
       </a>
-      <details>
-        <summary>What does this download?</summary>
-        <div class="what-downloads">
-          <strong>say-it.exe</strong> — a single file (~150 MB)<br><br>
-          Includes Python runtime, the Whisper speech model, and everything needed to run.<br><br>
-          <strong>On first launch</strong>, it downloads the AI model (~250 MB) — takes 1–2 min. After that it works fully offline.<br><br>
-          Nothing is installed to your system. Delete the file to uninstall.
-        </div>
-      </details>
+      <div class="what-downloads">
+        <strong>say-it.exe</strong> — single file, ~150 MB<br>
+        No installation needed. Delete to uninstall.<br><br>
+        <strong>First launch:</strong> downloads AI model (~250 MB), takes 1–2 min. Fully offline after that.<br><br>
+        <strong>⚠ Windows may warn "unrecognized app"</strong> — this is normal for unsigned open-source software. Click <em>More info → Run anyway</em>. The source code is fully open on GitHub.
+      </div>
     </div>
 
     <div class="card">
